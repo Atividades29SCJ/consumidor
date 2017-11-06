@@ -10,11 +10,11 @@ public class Loader {
 		
 		String port = System.getenv("PORT"); 
         String host = "http://0.0.0.0:";
-        String uri = "/service";
+        String uri = "/WSConsumidor-1.0.0/ConsumidorService";
         ConsumidorService service = new ConsumidorService();
         
 //        host + port + uri
         
-        Endpoint.publish("http://localhost:8080/service", service);
+        Endpoint.publish("http://localhost:8080/WSConsumidor-1.0.0/ConsumidorService", service);
 	}
 }
