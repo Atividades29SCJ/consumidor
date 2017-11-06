@@ -14,7 +14,7 @@ public class Loader {
         ConsumidorService service = new ConsumidorService();
         
 //        host + port + uri
-        
-        Endpoint.publish("http://localhost:8080/WSConsumidor-1.0.0/ConsumidorService", service);
+        Endpoint.publish(host + port + uri, service);
+        //Endpoint.publish("http://localhost:8080/WSConsumidor-1.0.0/ConsumidorService", service);
 	}
 }
