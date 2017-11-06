@@ -19,6 +19,7 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.lang3.StringUtils;
 
 import br.com.fiap.consumidor.client.Produto;
+import br.com.fiap.consumidor.client.Produtos;
 import br.com.fiap.consumidor.service.vo.SimularCompraVO;
 import br.com.fiap.consumidor.service.vo.UsuarioVO;
 import br.com.fiap.financeira.servico.CadastrarClienteRequest;
@@ -161,20 +162,21 @@ public class ConsumidorService {
 	}
 	
 	public SimularCompraVO simularCompra(@WebParam(name = "documento", header = false) String cpfcnpj,
-			@WebParam(name = "produtos", header = false) List<Long> codProdutos,
+			@WebParam(name = "produtos", header = false) Produtos codProdutos,
 			@WebParam(name = "Username", header = true) String usuario,
 			@WebParam(name = "Password", header = true) String senha) throws Exception {
 		
 		if (autenticado(usuario, senha)) {
 			SimularCompraVO simularCompraVo = new SimularCompraVO();
 			
-			if(StringUtils.isBlank(cpfcnpj) || codProdutos == null || codProdutos.isEmpty()) {
+			if(StringUtils.isBlank(cpfcnpj) || codProdutos == null || 
+						codProdutos.getCodPRodutos() == null || codProdutos.getCodPRodutos().isEmpty()) {
 				throw new Exception("Parametros inválidos");
 			}
 			
-			validaLista(codProdutos);
+			validaLista(codProdutos.getCodPRodutos());
 			
-			String json = montaJson(codProdutos);
+			String json = montaJson(codProdutos.getCodPRodutos());
 			
 			Client client = ClientBuilder.newClient();
 			WebTarget webTarget = client.target("http://loja-29scj.us-east-2.elasticbeanstalk.com/simularCompra");
