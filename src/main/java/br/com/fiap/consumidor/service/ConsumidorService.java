@@ -207,9 +207,15 @@ public class ConsumidorService {
 	@WebMethod
 	public boolean efetuarCompra(@WebParam(name = "dadosCompra", header = false) CompraVO dadosCompra,
 			@WebParam(name = "Username", header = true) String usuario,
-			@WebParam(name = "Password", header = true) String senha) throws AuthenticationException {
+			@WebParam(name = "Password", header = true) String senha) throws Exception {
 
 		if (autenticado(usuario, senha)) {
+			
+			if(dadosCompra == null || StringUtils.isBlank(dadosCompra.getDocumento()) 
+					|| dadosCompra.getListaProdutos() == null || dadosCompra.getListaProdutos().isEmpty()){
+				throw new Exception("Parametros inválidos");
+			}
+			
 			Client client = ClientBuilder.newClient();
 			WebTarget webTarget = client.target("http://loja-29scj.us-east-2.elasticbeanstalk.com/efetuarCompra");
 			Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
