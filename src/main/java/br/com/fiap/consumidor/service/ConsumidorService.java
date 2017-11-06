@@ -21,7 +21,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import br.com.fiap.consumidor.client.Produto;
 import br.com.fiap.consumidor.client.Produtos;
-import br.com.fiap.consumidor.service.vo.CompraVO;
 import br.com.fiap.consumidor.service.vo.SimularCompraVO;
 import br.com.fiap.consumidor.service.vo.UsuarioVO;
 import br.com.fiap.financeira.servico.CadastrarClienteRequest;
@@ -29,6 +28,8 @@ import br.com.fiap.financeira.servico.CadastrarClienteResponse;
 import br.com.fiap.financeira.servico.CadastroClienteRequestPojo;
 import br.com.fiap.financeira.servico.FinanceiroWebService;
 import br.com.fiap.financeira.servico.FinanceiroWebServiceService;
+import br.com.fiap.loja.service.CompraVO;
+import br.com.fiap.loja.service.Retorno;
 
 @WebService(endpointInterface = "br.com.fiap.consumidor.service.ConsumidorService", serviceName = "ConsumidorService")
 public class ConsumidorService {
@@ -215,10 +216,9 @@ public class ConsumidorService {
 
 			Response response = invocationBuilder.post(Entity.entity(dadosCompra, MediaType.APPLICATION_JSON));
 
-			if(response.toString().contains("200")){
-				return true;
-			}
+			Retorno retorno = response.readEntity(br.com.fiap.loja.service.Retorno.class);
 			
+			return retorno.isRetorno();
 
 		}
 

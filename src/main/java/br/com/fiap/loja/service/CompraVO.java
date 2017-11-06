@@ -1,4 +1,4 @@
-package br.com.fiap.consumidor.service.vo;
+package br.com.fiap.loja.service;
 
 import java.util.List;
 
