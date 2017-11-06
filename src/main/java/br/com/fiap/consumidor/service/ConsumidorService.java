@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -141,7 +140,13 @@ public class ConsumidorService {
 			
 			List<Produto> produtos = Arrays.asList(obterListaProdutos());
 			
-			List<Long> codsList = produtos.stream().map(Produto::getCodigo).collect(Collectors.toList());
+			List<Long> codsList = new ArrayList<>();
+			
+			for (Produto p : produtos) {
+				
+				codsList.add(p.getCodigo());
+				
+			}
 			
 			for (int i = 0; i < codProdutos.size(); i++) {
 				
