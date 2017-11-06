@@ -126,6 +126,19 @@ public class ConsumidorService {
 		return sb.toString();
 	}
 	
+	private String montaJsonEfetuarCompra(List<Long> cods) {
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("{ ");
+		
+		sb.append("\"documento\" : 123, ");
+		sb.append("\"listaProdutos\": ");
+		sb.append(montaJson(cods));
+		sb.append(" }");
+		
+		return sb.toString();
+	}
+	
 	private void validaLista(List<Long> listaValidacao) throws Exception {
 		
 		List<Produto> produtos = Arrays.asList(obterListaProdutos());
