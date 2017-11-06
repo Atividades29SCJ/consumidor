@@ -126,6 +126,27 @@ public class ConsumidorService {
 		return sb.toString();
 	}
 	
+	private void validaLista(List<Long> listaValidacao) throws Exception {
+		
+		List<Produto> produtos = Arrays.asList(obterListaProdutos());
+		
+		List<Long> codsList = new ArrayList<>();
+		
+		for (Produto p : produtos) {
+			
+			codsList.add(p.getCodigo());
+			
+		}
+		
+		for (int i = 0; i < listaValidacao.size(); i++) {
+			
+			if(!codsList.contains(listaValidacao.get(i))) {
+				throw new Exception("O código de produto: " + listaValidacao.get(i) + " não é válido");
+			}
+		}
+		
+	}
+	
 	public SimularCompraVO simularCompra(@WebParam(name = "documento", header = false) String cpfcnpj,
 			@WebParam(name = "produtos", header = false) List<Long> codProdutos,
 			@WebParam(name = "Username", header = true) String usuario,
@@ -138,22 +159,7 @@ public class ConsumidorService {
 				throw new Exception("Parametros inválidos");
 			}
 			
-			List<Produto> produtos = Arrays.asList(obterListaProdutos());
-			
-			List<Long> codsList = new ArrayList<>();
-			
-			for (Produto p : produtos) {
-				
-				codsList.add(p.getCodigo());
-				
-			}
-			
-			for (int i = 0; i < codProdutos.size(); i++) {
-				
-				if(!codsList.contains(codProdutos.get(i))) {
-					throw new Exception("O código de produto: " + codProdutos.get(i) + " não é válido");
-				}
-			}
+			validaLista(codProdutos);
 			
 			String json = montaJson(codProdutos);
 			
