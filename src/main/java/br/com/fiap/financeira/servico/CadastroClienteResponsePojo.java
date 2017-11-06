@@ -1,157 +1,87 @@
-/**
- * CadastroClienteResponsePojo.java
- *
- * This file was auto-generated from WSDL
- * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
- */
 
 package br.com.fiap.financeira.servico;
 
-public class CadastroClienteResponsePojo  implements java.io.Serializable {
-    private java.lang.String senha;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-    private java.lang.String usuario;
 
-    public CadastroClienteResponsePojo() {
-    }
+/**
+ * <p>Classe Java de cadastroClienteResponsePojo complex type.
+ * 
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * 
+ * <pre>
+ * &lt;complexType name="cadastroClienteResponsePojo"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="senha" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="usuario" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "cadastroClienteResponsePojo", propOrder = {
+    "senha",
+    "usuario"
+})
+public class CadastroClienteResponsePojo {
 
-    public CadastroClienteResponsePojo(
-           java.lang.String senha,
-           java.lang.String usuario) {
-           this.senha = senha;
-           this.usuario = usuario;
-    }
-
+    protected String senha;
+    protected String usuario;
 
     /**
-     * Gets the senha value for this CadastroClienteResponsePojo.
+     * Obtém o valor da propriedade senha.
      * 
-     * @return senha
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public java.lang.String getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-
     /**
-     * Sets the senha value for this CadastroClienteResponsePojo.
+     * Define o valor da propriedade senha.
      * 
-     * @param senha
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setSenha(java.lang.String senha) {
-        this.senha = senha;
+    public void setSenha(String value) {
+        this.senha = value;
     }
 
-
     /**
-     * Gets the usuario value for this CadastroClienteResponsePojo.
+     * Obtém o valor da propriedade usuario.
      * 
-     * @return usuario
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public java.lang.String getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-
     /**
-     * Sets the usuario value for this CadastroClienteResponsePojo.
+     * Define o valor da propriedade usuario.
      * 
-     * @param usuario
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setUsuario(java.lang.String usuario) {
-        this.usuario = usuario;
-    }
-
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof CadastroClienteResponsePojo)) return false;
-        CadastroClienteResponsePojo other = (CadastroClienteResponsePojo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.senha==null && other.getSenha()==null) || 
-             (this.senha!=null &&
-              this.senha.equals(other.getSenha()))) &&
-            ((this.usuario==null && other.getUsuario()==null) || 
-             (this.usuario!=null &&
-              this.usuario.equals(other.getUsuario())));
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getSenha() != null) {
-            _hashCode += getSenha().hashCode();
-        }
-        if (getUsuario() != null) {
-            _hashCode += getUsuario().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(CadastroClienteResponsePojo.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://servico.financeira.fiap.com.br/", "cadastroClienteResponsePojo"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("senha");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "senha"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("usuario");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "usuario"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+    public void setUsuario(String value) {
+        this.usuario = value;
     }
 
 }

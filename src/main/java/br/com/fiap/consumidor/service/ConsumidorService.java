@@ -26,7 +26,7 @@ import br.com.fiap.financeira.servico.CadastrarClienteRequest;
 import br.com.fiap.financeira.servico.CadastrarClienteResponse;
 import br.com.fiap.financeira.servico.CadastroClienteRequestPojo;
 import br.com.fiap.financeira.servico.FinanceiroWebService;
-import br.com.fiap.financeira.servico.FinanceiroWebServiceServiceLocator;
+import br.com.fiap.financeira.servico.FinanceiroWebServiceService;
 
 @WebService(endpointInterface = "br.com.fiap.consumidor.service.ConsumidorService", serviceName = "ConsumidorService")
 public class ConsumidorService {
@@ -51,11 +51,12 @@ public class ConsumidorService {
 			usuarioVO.setCpnjcpf(cpfcnpj);
 			usuarioVO.setValor(valor);
 			
-			FinanceiroWebService port = new FinanceiroWebServiceServiceLocator().getFinanceiroWebServicePort();
-			
+			FinanceiroWebService port = new FinanceiroWebServiceService().getFinanceiroWebServicePort();
 			CadastrarClienteRequest clienteRequest = new CadastrarClienteRequest();
 			
-			CadastroClienteRequestPojo cliPojo = new CadastroClienteRequestPojo(cpfcnpj, nome);
+			CadastroClienteRequestPojo cliPojo = new CadastroClienteRequestPojo();
+			cliPojo.setCpfCnpj(cpfcnpj);
+			cliPojo.setNome(nome);
 			
 			clienteRequest.setCliente(cliPojo);
 			

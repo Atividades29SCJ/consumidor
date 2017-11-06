@@ -1,120 +1,60 @@
-/**
- * CadastrarClienteRequest.java
- *
- * This file was auto-generated from WSDL
- * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
- */
 
 package br.com.fiap.financeira.servico;
 
-public class CadastrarClienteRequest  implements java.io.Serializable {
-    private br.com.fiap.financeira.servico.CadastroClienteRequestPojo cliente;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
 
-    public CadastrarClienteRequest() {
-    }
 
-    public CadastrarClienteRequest(
-           br.com.fiap.financeira.servico.CadastroClienteRequestPojo cliente) {
-           this.cliente = cliente;
-    }
+/**
+ * <p>Classe Java de cadastrarClienteRequest complex type.
+ * 
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * 
+ * <pre>
+ * &lt;complexType name="cadastrarClienteRequest"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="cliente" type="{http://servico.financeira.fiap.com.br/}cadastroClienteRequestPojo" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "cadastrarClienteRequest", propOrder = {
+    "cliente"
+})
+public class CadastrarClienteRequest {
 
+    protected CadastroClienteRequestPojo cliente;
 
     /**
-     * Gets the cliente value for this CadastrarClienteRequest.
+     * Obtém o valor da propriedade cliente.
      * 
-     * @return cliente
+     * @return
+     *     possible object is
+     *     {@link CadastroClienteRequestPojo }
+     *     
      */
-    public br.com.fiap.financeira.servico.CadastroClienteRequestPojo getCliente() {
+    public CadastroClienteRequestPojo getCliente() {
         return cliente;
     }
 
-
     /**
-     * Sets the cliente value for this CadastrarClienteRequest.
+     * Define o valor da propriedade cliente.
      * 
-     * @param cliente
+     * @param value
+     *     allowed object is
+     *     {@link CadastroClienteRequestPojo }
+     *     
      */
-    public void setCliente(br.com.fiap.financeira.servico.CadastroClienteRequestPojo cliente) {
-        this.cliente = cliente;
-    }
-
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof CadastrarClienteRequest)) return false;
-        CadastrarClienteRequest other = (CadastrarClienteRequest) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.cliente==null && other.getCliente()==null) || 
-             (this.cliente!=null &&
-              this.cliente.equals(other.getCliente())));
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getCliente() != null) {
-            _hashCode += getCliente().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(CadastrarClienteRequest.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://servico.financeira.fiap.com.br/", "cadastrarClienteRequest"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("cliente");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "cliente"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://servico.financeira.fiap.com.br/", "cadastroClienteRequestPojo"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
+    public void setCliente(CadastroClienteRequestPojo value) {
+        this.cliente = value;
     }
 
 }
