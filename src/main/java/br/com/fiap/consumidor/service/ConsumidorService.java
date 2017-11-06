@@ -169,8 +169,7 @@ public class ConsumidorService {
 		if (autenticado(usuario, senha)) {
 			SimularCompraVO simularCompraVo = new SimularCompraVO();
 			
-			if(StringUtils.isBlank(cpfcnpj) || codProdutos == null || 
-						codProdutos.getCodPRodutos() == null || codProdutos.getCodPRodutos().isEmpty()) {
+			if(StringUtils.isBlank(cpfcnpj) || codProdutos == null || codProdutos.getCodPRodutos() == null || codProdutos.getCodPRodutos().isEmpty()) {
 				throw new Exception("Parametros inválidos");
 			}
 			

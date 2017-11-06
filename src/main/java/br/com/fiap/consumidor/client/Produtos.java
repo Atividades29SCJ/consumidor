@@ -2,24 +2,24 @@ package br.com.fiap.consumidor.client;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
-
+@XmlRootElement(name = "Produtos")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Produtos {
 
 	@XmlElement(name = "produto")
-	private List<Produto> produtoList;
+	private List<Long> codPRodutos;
 
-	public List<Produto> getProdutoList() {
-		return produtoList;
+	public List<Long> getCodPRodutos() {
+		return codPRodutos;
 	}
 
-	public void setProdutoList(List<Produto> produtoList) {
-		this.produtoList = produtoList;
+	public void setCodPRodutos(List<Long> codPRodutos) {
+		this.codPRodutos = codPRodutos;
 	}
 
 }
