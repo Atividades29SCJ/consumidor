@@ -235,4 +235,13 @@ public class ConsumidorService {
 		return false;
 	}
 
+	@WebMethod
+	public List<UsuarioVO> listarUsuarios(@WebParam(name = "Username", header = true) String usuario,
+			@WebParam(name = "Password", header = true) String senha) throws AuthenticationException{
+		
+		autenticado(usuario, senha);
+		
+		return usuarios;
+	}
+	
 }
