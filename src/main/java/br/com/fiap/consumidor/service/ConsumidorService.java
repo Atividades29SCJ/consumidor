@@ -93,7 +93,11 @@ public class ConsumidorService {
 	}
 
 	@WebMethod
-	public Produto[] listarProdutos() {
+	public Produto[] listarProdutos(@WebParam(name = "Username", header = true) String usuario,
+			@WebParam(name = "Password", header = true) String senha) throws AuthenticationException {
+		
+		autenticado(usuario, senha);
+		
 		return this.obterListaProdutos();
 	}
 
