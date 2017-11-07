@@ -222,6 +222,10 @@ public class ConsumidorService {
 
 			Response response = invocationBuilder.post(Entity.entity(dadosCompra, MediaType.APPLICATION_JSON));
 
+			if(response.getStatus() != 200){
+				throw new Exception("Erro interno na chamada do serviço da loja, Tente novamente mais tarde!");
+			}
+			
 			Retorno retorno = response.readEntity(br.com.fiap.loja.service.Retorno.class);
 			
 			return retorno.isRetorno();
